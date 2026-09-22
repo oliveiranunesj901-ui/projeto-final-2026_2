@@ -1,0 +1,1532 @@
+/* =========================
+   FONTES
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+
+/* =========================
+   VARIÁVEIS
+========================= */
+
+:root {
+    --navy: #081521;
+    --navy-2: #102536;
+
+    --gold: #b99652;
+    --gold-light: #d7bc82;
+
+    --cream: #f5f1e8;
+
+    --white: #ffffff;
+
+    --text: #293542;
+    --muted: #6d7781;
+
+    --line: #ddd7cc;
+
+    --container: 1160px;
+
+    --shadow: 0 20px 60px rgba(8, 21, 33, 0.12);
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "Montserrat", Arial, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+}
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+.container {
+    width: min(var(--container), calc(100% - 44px));
+    margin: auto;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(8, 21, 33, 0.97);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(12px);
+}
+
+
+.nav {
+    min-height: 84px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 11px;
+
+    color: white;
+
+    text-decoration: none;
+}
+
+
+.logo-mark {
+    color: var(--gold-light);
+
+    font-size: 2rem;
+
+    line-height: 1;
+}
+
+
+.logo strong {
+    display: block;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 1.5rem;
+
+    letter-spacing: 2px;
+
+    line-height: 1;
+}
+
+
+.logo small {
+    display: block;
+
+    color: var(--gold-light);
+
+    font-size: 0.54rem;
+
+    letter-spacing: 3px;
+
+    margin-top: 5px;
+}
+
+
+/* MENU */
+
+.menu {
+    display: flex;
+
+    gap: 30px;
+
+    list-style: none;
+}
+
+
+.menu a {
+    color: #e9edf0;
+
+    text-decoration: none;
+
+    font-size: 0.78rem;
+
+    font-weight: 600;
+
+    transition: color 0.2s;
+}
+
+
+.menu a:hover {
+    color: var(--gold-light);
+}
+
+
+/* BOTÃO MENU MOBILE */
+
+.menu-toggle {
+    display: none;
+
+    color: white;
+
+    background: none;
+
+    border: 0;
+
+    font-size: 1.7rem;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+
+    min-height: 690px;
+
+    overflow: hidden;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 14, 23, 0.94) 0%,
+            rgba(4, 14, 23, 0.79) 48%,
+            rgba(4, 14, 23, 0.38) 100%
+        ),
+
+        url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2200&q=90")
+        center / cover;
+}
+
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 80px;
+}
+
+
+.hero-text {
+    max-width: 720px;
+}
+
+
+/* PEQUENO TÍTULO */
+
+.eyebrow {
+    color: var(--gold-light);
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3.5px;
+
+    margin-bottom: 17px;
+}
+
+
+.eyebrow.dark {
+    color: #947335;
+}
+
+
+/* TÍTULO PRINCIPAL */
+
+.hero h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: clamp(3.3rem, 6vw, 5.8rem);
+
+    line-height: 0.98;
+
+    font-weight: 600;
+
+    max-width: 790px;
+
+    margin-bottom: 28px;
+}
+
+
+.hero h1 em {
+    color: var(--gold-light);
+
+    font-style: normal;
+}
+
+
+.hero-description {
+    color: #d0d8df;
+
+    max-width: 620px;
+
+    font-size: 1rem;
+
+    margin-bottom: 34px;
+}
+
+
+/* BOTÕES */
+
+.hero-actions {
+    display: flex;
+
+    gap: 13px;
+
+    flex-wrap: wrap;
+}
+
+
+.btn {
+    min-height: 51px;
+
+    padding: 13px 24px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid transparent;
+
+    text-decoration: none;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.6px;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+
+.btn-gold {
+    background: var(--gold);
+
+    color: var(--navy);
+}
+
+
+.btn-gold:hover {
+    background: var(--gold-light);
+}
+
+
+.btn-light {
+    border-color: rgba(255, 255, 255, 0.45);
+
+    color: white;
+}
+
+
+.btn-light:hover {
+    background: white;
+
+    color: var(--navy);
+}
+
+
+/* CÍRCULO DO HERO */
+
+.hero-card {
+    width: 220px;
+
+    height: 220px;
+
+    flex: 0 0 220px;
+
+    border: 1px solid rgba(215, 188, 130, 0.55);
+
+    border-radius: 50%;
+
+    background: rgba(7, 19, 29, 0.35);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.hero-card-icon {
+    color: var(--gold-light);
+
+    font-size: 3.5rem;
+
+    line-height: 1;
+}
+
+
+.hero-card-line {
+    width: 42px;
+
+    height: 1px;
+
+    background: var(--gold);
+
+    margin: 14px 0 10px;
+}
+
+
+.hero-card strong {
+    font-size: 0.68rem;
+
+    letter-spacing: 2px;
+}
+
+
+.hero-card p {
+    color: #bdc7cf;
+
+    font-size: 0.68rem;
+
+    margin-top: 3px;
+}
+
+
+/* =========================
+   NÚMEROS
+========================= */
+
+.numbers {
+    background: var(--gold);
+
+    color: var(--navy);
+}
+
+
+.numbers-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    min-height: 130px;
+}
+
+
+.numbers-grid div {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 20px 25px;
+
+    border-right: 1px solid rgba(8, 21, 33, 0.16);
+}
+
+
+.numbers-grid div:last-child {
+    border: 0;
+}
+
+
+.numbers strong {
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 2.3rem;
+
+    line-height: 1;
+}
+
+
+.numbers span {
+    font-size: 0.66rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-top: 7px;
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.section {
+    padding: 100px 0;
+}
+
+
+/* =========================
+   SOBRE O ESCRITÓRIO
+========================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 85px;
+
+    align-items: center;
+}
+
+
+/* IMAGEM */
+
+.image-frame {
+    position: relative;
+
+    padding: 0 28px 28px 0;
+}
+
+
+.image-frame::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 78%;
+
+    height: 78%;
+
+    border: 1px solid var(--gold);
+
+    z-index: 0;
+}
+
+
+.image-frame img {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    height: 540px;
+
+    object-fit: cover;
+}
+
+
+/* ETIQUETA DA IMAGEM */
+
+.image-label {
+    position: absolute;
+
+    z-index: 2;
+
+    left: -15px;
+
+    bottom: 45px;
+
+    background: var(--navy);
+
+    color: white;
+
+    padding: 18px 24px;
+
+    box-shadow: var(--shadow);
+}
+
+
+.image-label span,
+.image-label strong {
+    display: block;
+}
+
+
+.image-label span {
+    color: var(--gold-light);
+
+    font-size: 0.58rem;
+
+    letter-spacing: 2px;
+}
+
+
+.image-label strong {
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 1.25rem;
+}
+
+
+/* TEXTO SOBRE */
+
+.about-content h2,
+.section-heading h2,
+.contact-copy h2 {
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-weight: 600;
+
+    color: var(--navy);
+
+    font-size: clamp(2.6rem, 4.5vw, 4rem);
+
+    line-height: 1.02;
+
+    margin-bottom: 22px;
+}
+
+
+.about-content p:not(.eyebrow) {
+    color: var(--muted);
+
+    margin-bottom: 17px;
+
+    font-size: 0.92rem;
+}
+
+
+/* ASSINATURA */
+
+.signature {
+    margin-top: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.signature-line {
+    width: 42px;
+
+    height: 1px;
+
+    background: var(--gold);
+}
+
+
+.signature strong,
+.signature small {
+    display: block;
+}
+
+
+.signature strong {
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    color: var(--navy);
+
+    font-size: 1.25rem;
+}
+
+
+.signature small {
+    color: var(--muted);
+
+    font-size: 0.6rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   ÁREAS DE ATUAÇÃO
+========================= */
+
+.areas {
+    background: var(--cream);
+}
+
+
+.section-heading {
+    text-align: center;
+
+    max-width: 650px;
+
+    margin: 0 auto 50px;
+}
+
+
+.section-heading h2 {
+    margin-bottom: 10px;
+}
+
+
+.section-heading > p:last-child {
+    color: var(--muted);
+
+    font-size: 0.9rem;
+}
+
+
+/* GRID */
+
+.areas-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1px;
+
+    background: var(--line);
+
+    border: 1px solid var(--line);
+}
+
+
+/* CARD */
+
+.area-card {
+    position: relative;
+
+    min-height: 285px;
+
+    background: white;
+
+    padding: 35px;
+
+    transition: 0.25s;
+}
+
+
+.area-card:hover {
+    background: var(--navy);
+
+    color: white;
+
+    transform: translateY(-5px);
+
+    z-index: 2;
+
+    box-shadow: var(--shadow);
+}
+
+
+.area-number {
+    position: absolute;
+
+    right: 25px;
+
+    top: 24px;
+
+    color: #cfc7b8;
+
+    font-size: 0.65rem;
+}
+
+
+.area-icon {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 2rem;
+
+    margin-bottom: 23px;
+}
+
+
+.area-card h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    color: var(--navy);
+
+    font-size: 1.65rem;
+
+    margin-bottom: 10px;
+}
+
+
+.area-card:hover h3 {
+    color: white;
+}
+
+
+.area-card p {
+    color: var(--muted);
+
+    font-size: 0.78rem;
+
+    margin-bottom: 22px;
+}
+
+
+.area-card:hover p {
+    color: #b7c2cc;
+}
+
+
+.area-card a {
+    color: #8c6c31;
+
+    text-decoration: none;
+
+    font-size: 0.67rem;
+
+    font-weight: 700;
+}
+
+
+.area-card:hover a {
+    color: var(--gold-light);
+}
+
+
+/* =========================
+   DIFERENCIAIS
+========================= */
+
+.dark-section {
+    padding: 105px 0;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7, 18, 28, 0.97),
+            rgba(10, 28, 43, 0.95)
+        ),
+
+        url("https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?auto=format&fit=crop&w=1800&q=80")
+        center / cover;
+}
+
+
+.dark-grid {
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+
+.dark-copy h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: clamp(2.7rem, 5vw, 4.4rem);
+
+    line-height: 1;
+
+    font-weight: 600;
+
+    margin-bottom: 22px;
+}
+
+
+.dark-copy h2 span {
+    color: var(--gold-light);
+}
+
+
+.dark-copy > p:not(.eyebrow) {
+    color: #aebbc6;
+
+    font-size: 0.9rem;
+
+    max-width: 520px;
+
+    margin-bottom: 28px;
+}
+
+
+.text-link {
+    color: var(--gold-light);
+
+    text-decoration: none;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+}
+
+
+/* DIFERENCIAIS */
+
+.features {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+
+.feature {
+    display: grid;
+
+    grid-template-columns: 55px 1fr;
+
+    gap: 20px;
+
+    padding: 23px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+
+.feature > span {
+    color: var(--gold-light);
+
+    font-size: 0.7rem;
+
+    padding-top: 5px;
+}
+
+
+.feature h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 1.4rem;
+
+    margin-bottom: 3px;
+}
+
+
+.feature p {
+    color: #9eacb8;
+
+    font-size: 0.73rem;
+}
+
+
+/* =========================
+   FRASE
+========================= */
+
+.quote-section {
+    padding: 95px 20px;
+
+    background: var(--cream);
+
+    text-align: center;
+}
+
+
+.quote-box {
+    max-width: 850px;
+}
+
+
+.quote-mark {
+    display: block;
+
+    color: var(--gold);
+
+    font-family: Georgia, serif;
+
+    font-size: 5rem;
+
+    height: 55px;
+}
+
+
+blockquote {
+    color: var(--navy);
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: clamp(2rem, 4vw, 3.2rem);
+
+    line-height: 1.15;
+
+    font-weight: 600;
+}
+
+
+.quote-line {
+    width: 45px;
+
+    height: 1px;
+
+    background: var(--gold);
+
+    margin: 25px auto 12px;
+}
+
+
+.quote-box > p:last-child {
+    color: #8a7447;
+
+    font-size: 0.6rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   CONTATO
+========================= */
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: 0.85fr 1.15fr;
+
+    gap: 90px;
+
+    align-items: start;
+}
+
+
+.contact-copy h2 {
+    margin-bottom: 18px;
+}
+
+
+.contact-copy > p:not(.eyebrow) {
+    color: var(--muted);
+
+    font-size: 0.88rem;
+
+    max-width: 500px;
+
+    margin-bottom: 35px;
+}
+
+
+/* INFORMAÇÕES */
+
+.contact-details > div {
+    display: flex;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+.contact-details span {
+    color: var(--gold);
+
+    font-size: 1.15rem;
+}
+
+
+.contact-details p {
+    color: var(--muted);
+
+    font-size: 0.72rem;
+}
+
+
+.contact-details strong {
+    color: var(--navy);
+}
+
+
+/* FORMULÁRIO */
+
+.contact-form {
+    background: var(--cream);
+
+    padding: 38px;
+
+    border-top: 4px solid var(--gold);
+}
+
+
+.form-title {
+    margin-bottom: 25px;
+}
+
+
+.form-title span {
+    color: #927139;
+
+    font-size: 0.62rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.form-title h3 {
+    color: var(--navy);
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 2rem;
+}
+
+
+/* CAMPOS */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+
+.field {
+    display: grid;
+
+    gap: 6px;
+
+    margin-bottom: 15px;
+}
+
+
+.field label {
+    color: var(--navy);
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+}
+
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+
+    border: 1px solid #d7d0c4;
+
+    background: white;
+
+    padding: 13px 14px;
+
+    font: inherit;
+
+    font-size: 0.78rem;
+
+    color: var(--text);
+
+    outline: none;
+
+    border-radius: 0;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 3px rgba(185, 150, 82, 0.12);
+}
+
+
+.field textarea {
+    resize: vertical;
+}
+
+
+/* BOTÃO FORMULÁRIO */
+
+.btn-dark {
+    width: 100%;
+
+    background: var(--navy);
+
+    color: white;
+}
+
+
+.btn-dark:hover {
+    background: var(--navy-2);
+}
+
+
+/* MENSAGEM DO FORMULÁRIO */
+
+.feedback {
+    display: none;
+
+    padding: 11px;
+
+    margin-top: 12px;
+
+    background: #e8f3eb;
+
+    color: #285e3b;
+
+    font-size: 0.72rem;
+
+    text-align: center;
+}
+
+
+.feedback.error {
+    background: #f8e8e8;
+
+    color: #8a2929;
+}
+
+
+.form-note {
+    display: block;
+
+    color: #89919a;
+
+    text-align: center;
+
+    margin-top: 14px;
+
+    font-size: 0.58rem;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+.footer {
+    color: #aab5bf;
+
+    background: #050d15;
+
+    padding-top: 55px;
+}
+
+
+.footer-top {
+    display: grid;
+
+    grid-template-columns: 1.4fr 0.8fr 1fr;
+
+    gap: 60px;
+
+    padding-bottom: 45px;
+}
+
+
+.footer-brand p {
+    font-size: 0.68rem;
+
+    margin-top: 14px;
+}
+
+
+.footer-links {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.footer-links h4 {
+    color: white;
+
+    font-size: 0.7rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 7px;
+}
+
+
+.footer-links a,
+.footer-links span {
+    color: #909da8;
+
+    text-decoration: none;
+
+    font-size: 0.67rem;
+}
+
+
+.footer-links a:hover {
+    color: var(--gold-light);
+}
+
+
+/* PARTE INFERIOR */
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+
+    min-height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.footer-bottom p {
+    font-size: 0.57rem;
+}
+
+
+/* =========================
+   BOTÃO FLUTUANTE
+========================= */
+
+.whatsapp {
+    position: fixed;
+
+    right: 22px;
+
+    bottom: 22px;
+
+    z-index: 900;
+
+    width: 54px;
+
+    height: 54px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #1d8f55;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 1.5rem;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .hero-card {
+        display: none;
+    }
+
+
+    .about-grid,
+    .dark-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+
+    .areas-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .numbers-grid div:nth-child(2) {
+        border-right: 0;
+    }
+
+
+    .numbers-grid div:nth-child(-n+2) {
+        border-bottom:
+            1px solid rgba(8, 21, 33, 0.16);
+    }
+
+
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 680px) {
+
+    .container {
+        width: min(
+            calc(100% - 30px),
+            var(--container)
+        );
+    }
+
+
+    .nav {
+        min-height: 72px;
+    }
+
+
+    /* MENU */
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+    .menu {
+        display: none;
+
+        position: absolute;
+
+        left: 0;
+
+        right: 0;
+
+        top: 72px;
+
+        padding: 22px 20px;
+
+        flex-direction: column;
+
+        gap: 17px;
+
+        background: var(--navy);
+
+        border-top:
+            1px solid rgba(255, 255, 255, 0.08);
+    }
+
+
+    .menu.open {
+        display: flex;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 620px;
+    }
+
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+
+    /* GRIDS */
+
+    .numbers-grid,
+    .areas-grid,
+    .form-row,
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* NÚMEROS */
+
+    .numbers-grid div,
+    .numbers-grid div:nth-child(2) {
+
+        border-right: 0;
+
+        border-bottom:
+            1px solid rgba(8, 21, 33, 0.16);
+    }
+
+
+    .numbers-grid div:last-child {
+        border-bottom: 0;
+    }
+
+
+    /* IMAGEM */
+
+    .image-frame img {
+        height: 420px;
+    }
+
+
+    .image-label {
+        left: 0;
+    }
+
+
+    /* FORMULÁRIO */
+
+    .contact-form {
+        padding: 25px 20px;
+    }
+
+
+    /* RODAPÉ */
+
+    .footer-bottom {
+        padding: 18px 0;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        justify-content: center;
+    }
+
+}

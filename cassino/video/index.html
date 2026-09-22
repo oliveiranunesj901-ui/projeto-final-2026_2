@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PontoPlay Fortune</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- VÍDEO DE FUNDO -->
+    <video autoplay muted loop id="backgroundVideo">
+        <source src="video/video1.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <!-- =========================
+         LOGIN
+    ========================= -->
+    <div id="loginScreen" class="login-screen">
+
+        <div class="login-box">
+
+            <h1>🎰 PontoPlay Fortune</h1>
+
+            <p>Entre para começar sua experiência!</p>
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Digite seu nome"
+            >
+
+            <input
+                type="tel"
+                id="telefone"
+                placeholder="Digite seu telefone"
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Digite seu e-mail"
+            >
+
+            <button id="loginButton">
+                ENTRAR
+            </button>
+
+            <p class="credit-info">
+                🎁 Você começa com <strong>100 créditos virtuais</strong>
+            </p>
+
+            <p id="loginMessage"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         TELA DO JOGO
+    ========================= -->
+    <div id="gameScreen" class="game-screen">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+                <h2>🎰 PontoPlay Fortune</h2>
+            </div>
+
+            <div class="user-info">
+
+                <span>
+                    Olá, <strong id="userName"></strong>!
+                </span>
+
+                <span class="credit-display">
+                    💰 <strong id="credits">100</strong> créditos
+                </span>
+
+                <button id="logoutButton">
+                    SAIR
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             CONTEÚDO
+        ========================= -->
+        <main class="game-container">
+
+            <h1>🎮 Escolha seu jogo</h1>
+
+
+            <!-- =========================
+                 LINHA DOS JOGOS (lado a lado)
+            ========================= -->
+            <div class="games-row">
+
+                <!-- SLOT MACHINE -->
+                <div class="game-panel slot-panel">
+
+                    <h2>🎰 SLOT MACHINE</h2>
+
+                    <p>
+                        Boa sorte! Cada rodada custa 10 créditos virtuais.
+                    </p>
+
+                    <div class="slot-machine">
+
+                        <div class="slot" id="slot1">
+                            🎰
+                        </div>
+
+                        <div class="slot" id="slot2">
+                            🎰
+                        </div>
+
+                        <div class="slot" id="slot3">
+                            🎰
+                        </div>
+
+                    </div>
+
+                    <button id="spinButton" class="spin-button">
+
+                        🎰 GIRAR
+
+                        <small>
+                            10 créditos
+                        </small>
+
+                    </button>
+
+                </div>
+
+
+                <!-- RODA DA SORTE -->
+                <div class="game-panel wheel-section">
+
+                    <h2>🎡 RODA DA SORTE</h2>
+
+                    <p>
+                        Gire a roda e descubra sua pontuação!
+                    </p>
+
+                    <div class="wheel-container">
+
+                        <div class="wheel-pointer">
+                            ▼
+                        </div>
+
+                        <div id="fortuneWheel" class="fortune-wheel">
+
+                            <span class="wheel-label label-1">10</span>
+                            <span class="wheel-label label-2">20</span>
+                            <span class="wheel-label label-3">30</span>
+                            <span class="wheel-label label-4">40</span>
+                            <span class="wheel-label label-5">50</span>
+                            <span class="wheel-label label-6">20</span>
+                            <span class="wheel-label label-7">50</span>
+                            <span class="wheel-label label-8">10</span>
+
+                            <div class="wheel-center">
+                                🎡
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="wheelResult" class="wheel-result">
+                        🎁 Clique em "GIRAR RODA"!
+                    </div>
+
+
+                    <button id="wheelButton" class="wheel-button">
+
+                        🎡 GIRAR RODA
+
+                        <small>
+                            10 créditos virtuais
+                        </small>
+
+                    </button>
+
+                </div>
+
+
+                <!-- 21 (BLACKJACK) -->
+                <div class="game-panel blackjack-panel">
+
+                    <h2>🃏 21 (BLACKJACK)</h2>
+
+                    <p>
+                        Chegue o mais perto de 21 sem estourar! Cada rodada custa 20 créditos.
+                    </p>
+
+                    <div class="blackjack-table">
+
+                        <div class="hand-area">
+
+                            <h3>
+                                Dealer
+                                <span id="dealerScore" class="hand-score"></span>
+                            </h3>
+
+                            <div id="dealerHand" class="hand"></div>
+
+                        </div>
+
+                        <div class="hand-area">
+
+                            <h3>
+                                Você
+                                <span id="playerScore" class="hand-score"></span>
+                            </h3>
+
+                            <div id="playerHand" class="hand"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="blackjackResult" class="wheel-result">
+                        🃏 Clique em "APOSTAR" para começar!
+                    </div>
+
+                    <div class="blackjack-buttons">
+
+                        <button id="dealButton" class="spin-button">
+
+                            🃏 APOSTAR
+
+                            <small>
+                                20 créditos
+                            </small>
+
+                        </button>
+
+                        <button id="hitButton" class="wheel-button" disabled>
+                            ➕ PEDIR CARTA
+                        </button>
+
+                        <button id="standButton" class="wheel-button" disabled>
+                            ✋ PARAR
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VÍDEO PÔQUER -->
+                <div class="game-panel slot-panel poker-panel">
+
+                    <h2>🃏 VÍDEO PÔQUER</h2>
+
+                    <p>
+                        Jacks or Better! Clique nas cartas para segurar. Cada mão custa 15 créditos.
+                    </p>
+
+                    <div id="pokerHand" class="hand poker-hand"></div>
+
+                    <div id="pokerResult" class="wheel-result">
+                        🃏 Clique em "APOSTAR" para começar!
+                    </div>
+
+                    <div class="blackjack-buttons">
+
+                        <button id="pokerDealButton" class="spin-button">
+
+                            🃏 APOSTAR
+
+                            <small>
+                                15 créditos
+                            </small>
+
+                        </button>
+
+                        <button id="pokerDrawButton" class="wheel-button" disabled>
+                            🔄 TROCAR CARTAS
+                        </button>
+
+                    </div>
+
+                    <div class="paytable">
+
+                        <div><span>Royal Flush</span><strong>500</strong></div>
+                        <div><span>Straight Flush</span><strong>150</strong></div>
+                        <div><span>Quadra</span><strong>75</strong></div>
+                        <div><span>Full House</span><strong>40</strong></div>
+                        <div><span>Flush</span><strong>30</strong></div>
+                        <div><span>Sequência</span><strong>25</strong></div>
+                        <div><span>Trinca</span><strong>15</strong></div>
+                        <div><span>Dois Pares</span><strong>10</strong></div>
+                        <div><span>Valetes ou Melhor</span><strong>5</strong></div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 STATUS
+            ========================= -->
+            <div id="status" class="status">
+                🎰 Clique em GIRAR para começar!
+            </div>
+
+
+            <!-- =========================
+                 CRÉDITOS
+            ========================= -->
+            <div class="credits-box">
+
+                <span>
+                    💰 Créditos:
+                </span>
+
+                <strong id="creditsGame">
+                    100
+                </strong>
+
+            </div>
+
+
+            <!-- =========================
+                 REGRAS
+            ========================= -->
+            <div class="rules">
+
+                <h2>📜 Regras</h2>
+
+                <p>
+                    🎯 3 símbolos iguais:
+                    <strong>+100 créditos</strong>
+                </p>
+
+                <p>
+                    ⭐ 2 símbolos iguais:
+                    <strong>+30 créditos</strong>
+                </p>
+
+                <p>
+                    😢 Nenhum igual:
+                    <strong>-10 créditos</strong>
+                </p>
+
+                <p>
+                    🃏 Blackjack (21 com 2 cartas):
+                    <strong>paga 2,5x a aposta</strong>
+                </p>
+
+                <p>
+                    🃏 Vitória normal no 21:
+                    <strong>paga 2x a aposta</strong>
+                </p>
+
+                <p>
+                    🃏 Vídeo Pôquer:
+                    <strong>siga a tabela de prêmios do painel</strong>
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         MODAL ADMIN
+    ========================= -->
+    <div id="adminModal" class="modal">
+
+        <div class="modal-content">
+
+            <button id="closeAdmin" class="close-button">
+                ×
+            </button>
+
+            <h2>⚙️ Painel Administrativo</h2>
+
+            <div class="admin-stats">
+
+                <div class="stat-card">
+                    <span>👥 Usuários</span>
+                    <strong id="totalUsers">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>👀 Acessos</span>
+                    <strong id="totalAccess">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>🎰 Jogadas</span>
+                    <strong id="totalGames">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>🏆 Jackpots</span>
+                    <strong id="totalJackpots">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>💰 Créditos usados</span>
+                    <strong id="totalCollected">0</strong>
+                </div>
+
+            </div>
+
+
+            <button id="exportUsers" class="admin-button">
+                📥 Exportar usuários
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         TOAST
+    ========================= -->
+    <div id="toast" class="toast">
+        Mensagem
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>

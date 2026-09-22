@@ -1,0 +1,962 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    color: white;
+    background: #050b18;
+}
+
+/* =========================
+   VÍDEO DE FUNDO
+========================= */
+
+#backgroundVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 8, 20, 0.82);
+    z-index: -1;
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-screen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(8, 18, 38, 0.95);
+    border: 1px solid rgba(0, 195, 255, 0.35);
+    box-shadow: 0 0 35px rgba(0, 195, 255, 0.2);
+    text-align: center;
+}
+
+.login-box h1 {
+    margin-bottom: 12px;
+    color: #00c8ff;
+}
+
+.login-box p {
+    margin-bottom: 20px;
+    color: #cbd5e1;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 14px;
+    border: 1px solid #263c5c;
+    border-radius: 10px;
+    background: #0b1629;
+    color: white;
+    outline: none;
+}
+
+.login-box input:focus {
+    border-color: #00c8ff;
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.2);
+}
+
+#loginButton {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #00c8ff;
+    color: #00121c;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#loginButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.5);
+}
+
+.credit-info {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+#loginMessage {
+    min-height: 20px;
+}
+
+
+/* =========================
+   GAME SCREEN
+========================= */
+
+.game-screen {
+    display: none;
+    min-height: 100vh;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 35px;
+    background: rgba(5, 12, 27, 0.94);
+    border-bottom: 1px solid rgba(0, 200, 255, 0.2);
+}
+
+.topbar h2 {
+    color: #00c8ff;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.credit-display {
+    padding: 9px 14px;
+    border-radius: 10px;
+    background: rgba(0, 200, 255, 0.1);
+    color: #7eeaff;
+}
+
+#logoutButton {
+    padding: 9px 15px;
+    border: 1px solid #ff5268;
+    border-radius: 8px;
+    background: transparent;
+    color: #ff7b8b;
+    cursor: pointer;
+}
+
+
+/* =========================
+   GAME CONTAINER
+========================= */
+
+.game-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.game-container > h1 {
+    color: #00c8ff;
+    margin-bottom: 10px;
+}
+
+.game-container > p {
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   LINHA DOS JOGOS (lado a lado)
+========================= */
+
+.games-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: start;
+    gap: 30px;
+    margin: 30px auto;
+}
+
+.game-panel {
+    grid-column: span 2;
+    max-width: none;
+    width: auto;
+    min-width: 0;
+    overflow: hidden;
+}
+
+/* Painel de pôquer ocupando a largura toda da linha */
+.poker-panel {
+    grid-column: span 6;
+    padding: 40px 30px;
+}
+
+.games-row .poker-panel:nth-child(4) {
+    grid-column: 1 / -1;
+}
+
+.slot-panel {
+    padding: 30px 20px;
+    border-radius: 20px;
+    background: rgba(7, 17, 35, 0.92);
+    border: 1px solid rgba(0, 200, 255, 0.25);
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.12);
+}
+
+.slot-panel h2 {
+    color: #00c8ff;
+    margin-bottom: 8px;
+}
+
+.slot-panel > p {
+    color: #cbd5e1;
+    margin-bottom: 25px;
+}
+
+/* Dentro da games-row a roda não precisa mais de largura/margem próprias */
+.games-row .wheel-section {
+    width: auto;
+    max-width: none;
+    margin: 0;
+}
+
+
+/* =========================
+   SLOT MACHINE
+========================= */
+
+.slot-machine {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px auto;
+}
+
+.slot {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    border-radius: 18px;
+    background: #0b1629;
+    border: 2px solid #00c8ff;
+    box-shadow:
+        0 0 20px rgba(0, 200, 255, 0.15),
+        inset 0 0 20px rgba(0, 200, 255, 0.05);
+}
+
+
+/* =========================
+   BLACKJACK (21)
+========================= */
+
+.blackjack-panel {
+    padding: 30px 20px;
+    border-radius: 20px;
+    background: rgba(7, 17, 35, 0.92);
+    border: 1px solid rgba(0, 200, 255, 0.25);
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.12);
+}
+
+.blackjack-panel h2 {
+    color: #00c8ff;
+    margin-bottom: 8px;
+}
+
+.blackjack-panel > p {
+    color: #cbd5e1;
+    margin-bottom: 25px;
+}
+
+.blackjack-table {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 15px;
+}
+
+.hand-area h3 {
+    margin-bottom: 10px;
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.hand-score {
+    color: #ffd84d;
+    font-weight: bold;
+}
+
+.hand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-height: 78px;
+}
+
+.card {
+    width: 52px;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #f5f5f5;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.card-red {
+    color: #d0021b;
+}
+
+.card-black {
+    color: #12141c;
+}
+
+.card-back {
+    background: #0b1629;
+    border: 2px solid #00c8ff;
+    color: #00c8ff;
+    font-size: 26px;
+}
+
+
+/* =========================
+   VÍDEO PÔQUER
+========================= */
+
+.poker-panel h2 {
+    font-size: 28px;
+}
+
+.poker-panel > p {
+    font-size: 16px;
+}
+
+.poker-hand {
+    min-height: 90px;
+    margin-bottom: 10px;
+}
+
+.poker-panel .wheel-result {
+    font-size: 20px;
+}
+
+.poker-panel .paytable {
+    font-size: 15px;
+    padding: 18px;
+}
+
+.poker-panel .paytable div {
+    font-size: 15px;
+    padding: 6px 0;
+}
+
+.poker-card {
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
+}
+
+.poker-card.selectable:hover {
+    transform: translateY(-6px);
+}
+
+.poker-card.held {
+    border: 3px solid #ffd84d;
+    box-shadow: 0 0 14px rgba(255, 216, 77, 0.7);
+    transform: translateY(-6px);
+}
+
+.poker-card.held::after {
+    content: "SEGURAR";
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    color: #ffd84d;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.paytable {
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(0, 200, 255, 0.06);
+    border: 1px solid rgba(0, 200, 255, 0.2);
+    text-align: left;
+}
+
+.paytable div {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.paytable strong {
+    color: #ffd84d;
+}
+
+.blackjack-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.blackjack-buttons .spin-button,
+.blackjack-buttons .wheel-button {
+    width: auto;
+    min-width: 150px;
+    margin: 0;
+}
+
+
+/* =========================
+   RODA DA SORTE
+========================= */
+
+.wheel-section {
+    width: 100%;
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    border-radius: 20px;
+    background: rgba(7, 17, 35, 0.92);
+    border: 1px solid rgba(0, 200, 255, 0.25);
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.12);
+}
+
+.wheel-section h2 {
+    color: #00c8ff;
+    margin-bottom: 8px;
+}
+
+.wheel-section > p {
+    color: #cbd5e1;
+    margin-bottom: 25px;
+}
+
+.wheel-container {
+    position: relative;
+    width: 360px;
+    max-width: 100%;
+    height: 390px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    font-size: 42px;
+    color: #ffd84d;
+    text-shadow: 0 0 12px rgba(255, 216, 77, 0.8);
+}
+
+.fortune-wheel {
+    position: relative;
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    border: 8px solid #f5f5f5;
+
+    background:
+        conic-gradient(
+            #ff5268 0deg 45deg,
+            #00c8ff 45deg 90deg,
+            #7c4dff 90deg 135deg,
+            #00d084 135deg 180deg,
+            #ffb52e 180deg 225deg,
+            #ff5268 225deg 270deg,
+            #00c8ff 270deg 315deg,
+            #7c4dff 315deg 360deg
+        );
+
+    box-shadow:
+        0 0 25px rgba(0, 200, 255, 0.35),
+        inset 0 0 25px rgba(0, 0, 0, 0.35);
+
+    transition: transform 4.2s cubic-bezier(0.15, 0.75, 0.15, 1);
+}
+
+.wheel-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 0 0;
+    font-size: 21px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.label-1 {
+    transform: rotate(22.5deg) translate(105px, -12px);
+}
+
+.label-2 {
+    transform: rotate(67.5deg) translate(105px, -12px);
+}
+
+.label-3 {
+    transform: rotate(112.5deg) translate(105px, -12px);
+}
+
+.label-4 {
+    transform: rotate(157.5deg) translate(105px, -12px);
+}
+
+.label-5 {
+    transform: rotate(202.5deg) translate(105px, -12px);
+}
+
+.label-6 {
+    transform: rotate(247.5deg) translate(105px, -12px);
+}
+
+.label-7 {
+    transform: rotate(292.5deg) translate(105px, -12px);
+}
+
+.label-8 {
+    transform: rotate(337.5deg) translate(105px, -12px);
+}
+
+.wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 75px;
+    height: 75px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #071326;
+    border: 5px solid white;
+    font-size: 32px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.wheel-result {
+    min-height: 45px;
+    margin: 15px auto;
+    padding: 12px;
+    border-radius: 10px;
+    color: #ffd84d;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.wheel-button {
+    width: 250px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #00d084;
+    color: #001b11;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.wheel-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 22px rgba(0, 208, 132, 0.5);
+}
+
+.wheel-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.wheel-button small,
+.spin-button small {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+    min-height: 30px;
+    margin: 20px auto;
+    color: #ffd84d;
+    font-weight: bold;
+}
+
+
+/* =========================
+   CRÉDITOS
+========================= */
+
+.credits-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px auto 20px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: rgba(0, 200, 255, 0.1);
+    border: 1px solid rgba(0, 200, 255, 0.25);
+}
+
+.credits-box strong {
+    color: #00d084;
+    font-size: 22px;
+}
+
+
+/* =========================
+   BOTÃO SLOT
+========================= */
+
+.spin-button {
+    display: block;
+    width: 250px;
+    margin: 0 auto 35px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #00c8ff;
+    color: #00121c;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.spin-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 22px rgba(0, 200, 255, 0.5);
+}
+
+.spin-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================
+   REGRAS
+========================= */
+
+.rules {
+    max-width: 650px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(8, 18, 38, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rules h2 {
+    margin-bottom: 15px;
+    color: #00c8ff;
+}
+
+.rules p {
+    margin: 9px 0;
+    color: #d8e2ef;
+}
+
+
+/* =========================
+   MODAL ADMIN
+========================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    padding: 35px;
+    border-radius: 20px;
+    background: #081326;
+    border: 1px solid rgba(0, 200, 255, 0.3);
+}
+
+.modal-content h2 {
+    margin-bottom: 25px;
+    color: #00c8ff;
+}
+
+.close-button {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.stat-card {
+    padding: 20px;
+    border-radius: 12px;
+    background: #0d1b32;
+    border: 1px solid #203451;
+    text-align: center;
+}
+
+.stat-card span {
+    display: block;
+    margin-bottom: 8px;
+    color: #a9b8ca;
+}
+
+.stat-card strong {
+    color: #00d084;
+    font-size: 25px;
+}
+
+.admin-button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #00c8ff;
+    color: #00121c;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 50;
+    min-width: 230px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: #071326;
+    border: 1px solid #00c8ff;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.25);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: 0.3s;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================
+   RESPONSIVO - TELAS MÉDIAS
+========================= */
+
+@media (max-width: 1150px) {
+
+    .games-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .game-panel {
+        grid-column: span 1;
+    }
+
+    .poker-panel {
+        grid-column: 1 / -1;
+    }
+
+    .games-row .poker-panel:nth-child(4) {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 700px) {
+
+    .topbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .games-row {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .game-panel {
+        grid-column: auto;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .games-row .game-panel:nth-child(4),
+    .games-row .poker-panel:nth-child(4) {
+        grid-column-start: auto;
+    }
+
+    .poker-panel {
+        grid-column: auto;
+    }
+
+    .user-info {
+        justify-content: center;
+    }
+
+    .slot {
+        width: 90px;
+        height: 90px;
+        font-size: 42px;
+    }
+
+    .wheel-container {
+        width: 300px;
+        height: 330px;
+    }
+
+    .fortune-wheel {
+        width: 280px;
+        height: 280px;
+    }
+
+    .wheel-label {
+        font-size: 17px;
+    }
+
+    .label-1,
+    .label-2,
+    .label-3,
+    .label-4,
+    .label-5,
+    .label-6,
+    .label-7,
+    .label-8 {
+        transform: translate(-8px, -10px);
+    }
+
+    .login-box {
+        padding: 30px 20px;
+    }
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .slot-machine {
+        gap: 8px;
+    }
+
+    .slot {
+        width: 78px;
+        height: 78px;
+        font-size: 34px;
+    }
+
+    .fortune-wheel {
+        width: 245px;
+        height: 245px;
+    }
+
+    .wheel-container {
+        width: 270px;
+        height: 295px;
+    }
+
+    .wheel-pointer {
+        font-size: 32px;
+    }
+
+    .wheel-center {
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
+    }
+
+    .wheel-button,
+    .spin-button {
+        width: 90%;
+    }
+
+    .card {
+        width: 42px;
+        height: 62px;
+        font-size: 13px;
+    }
+
+    .card-back {
+        font-size: 20px;
+    }
+
+    .blackjack-buttons .spin-button,
+    .blackjack-buttons .wheel-button {
+        min-width: 0;
+        width: 100%;
+    }
+}
