@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos - 2026</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #38bdf8;
+        }
+
+        p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .card {
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #334155;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.15);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Meus Projetos</h1>
+        <p>Selecione uma das opções abaixo para acessar:</p>
+    </header>
+
+    <main class="container">
+        <a href="./adocao/index.html" class="card">
+            <div class="icon">🐾</div>
+            <h2>Adoção</h2>
+            <p>Acesse a plataforma de adoção de pets.</p>
+        </a>
+
+        <a href="./advocacia/index.html" class="card">
+            <div class="icon">⚖️</div>
+            <h2>Advocacia</h2>
+            <p>Acesse a página de serviços jurídicos.</p>
+        </a>
+
+        <a href="./cassino/index.html" class="card">
+            <div class="icon">🎰</div>
+            <h2>Cassino</h2>
+            <p>Acesse o projeto interativo de jogos.</p>
+        </a>
+    </main>
+
+</body>
+</html>
