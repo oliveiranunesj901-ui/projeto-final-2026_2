@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- MAGLU Pet Center - Adoção de Pets — Catálogo com filtros (JavaScript) -->
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAGLU Pet Center - Adoção de Pets</title>
+  <meta name="description" content="Galeria de animais para adoção com filtro por espécie e porte.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo/styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="nav">
+      <div class="logo">🐾 MAGLU Pet Center</div>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"
+        aria-controls="menu">☰</button>
+      <ul id="menu">
+        <li><a href="#inicio" aria-current="page">Início</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="quiz.html">Quiz de Adoção</a></li>
+        <li><a href="contato.html">Quero adotar</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-banner">
+        <img src="imagens/banner.png"
+          alt="Avô, neta, cachorro e gato se abraçando e sorrindo em uma campanha de adoção de pets">
+      </div>
+      <div class="hero-content container">
+        <span class="hero-pill">🐾 Adoção responsável e gratuita</span>
+        <h1>Encontre seu novo melhor amigo: um lar pode mudar tudo</h1>
+        <p class="lead">Por trás de cada olhar existe uma história, e por trás de cada história existe um bichinho
+          esperando por uma segunda chance.</p>
+        <p class="lead">Todos os pets da nossa galeria foram resgatados, cuidados e vacinados. Agora só precisam de uma
+          coisa: um lar para chamar de seu.</p>
+        <p class="lead">Filtre por espécie e porte, encontre aquele olhar que combina com você e dê a ele a
+          oportunidade de conhecer o significado de ter uma família. Adote. Ame. Transforme uma vida.</p>
+        <div class="hero-actions">
+          <a href="#catalogo" class="btn primary">Ver catálogo</a>
+          <a href="quiz.html" class="link-ghost">Fazer o quiz de adoção</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>150+</strong><span>adoções concluídas</span></div>
+          <div><strong>40</strong><span>ONGs parceiras</span></div>
+          <div><strong>100%</strong><span>gratuito</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo">
+      <div class="container">
+        <h2>Catálogo</h2>
+        <p class="subtitle">Use os filtros para encontrar o pet ideal</p>
+        <div class="filtros" id="filtros">
+          <button class="filtro-btn" type="button" data-filtro="Todos">Todos</button>
+          <button class="filtro-btn" type="button" data-filtro="Cão Grande">Cão Grande</button>
+          <button class="filtro-btn" type="button" data-filtro="Cão Pequeno">Cão Pequeno</button>
+          <button class="filtro-btn" type="button" data-filtro="Filhote">Filhote</button>
+          <button class="filtro-btn" type="button" data-filtro="Gato">Gato</button>
+        </div>
+        <div class="catalogo" id="lista"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="ano"></span> MAGLU Pet Center - Adoção de Pets</p>
+  </footer>
+
+  <!-- Dados do catálogo embarcados (em projetos reais viriam de uma API) -->
+  <script>
+    window.ITENS = [
+      { "nome": "Thor", "categoria": "Cão Grande", "idade": "3 anos", "foto": "imagens/img1.PNG" },
+      { "nome": "Mimi", "categoria": "Gato", "idade": "2 anos", "foto": "imagens/img5.PNG" },
+      { "nome": "Bidu", "categoria": "Cão Pequeno", "idade": "1 ano", "foto": "imagens/img2.PNG" },
+      { "nome": "Luna", "categoria": "Gato", "idade": "5 anos", "foto": "imagens/img6.PNG" },
+      { "nome": "Rex", "categoria": "Cão Grande", "idade": "4 anos", "foto": "imagens/img4.PNG" },
+      { "nome": "Pipoca", "categoria": "Cão Pequeno", "idade": "6 meses", "foto": "imagens/img3.PNG" },
+      { "nome": "Bela", "categoria": "Filhote", "idade": "5 meses", "foto": "imagens/img7.PNG" },
+      { "nome": "Nina", "categoria": "Cão Pequeno", "idade": "2 anos", "foto": "imagens/img8.PNG" },
+      { "nome": "Dama", "categoria": "Cão Grande", "idade": "1 ano", "foto": "imagens/img9.PNG" },
+      { "nome": "Moranguinho", "categoria": "Gato", "idade": "3 anos", "foto": "imagens/img10.PNG" }
+    ];
+    window.LABEL_IDADE = "Idade:";
+  </script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
